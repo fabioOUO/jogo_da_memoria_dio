@@ -20,6 +20,7 @@ body {
 .title {
   font-size: 2rem;
   margin: 2.5vw 0px;
+  color: #dddddd;
 }
 .memory-game {
   height: 640px;
@@ -28,16 +29,25 @@ body {
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 10vh;
+  perspective: 1000px;
 }
 
 .card {
   height: calc(33, 333% - 10px);
   width: calc(25% - 10px);
   margin: 5px;
+  border-radius: 5px;
   position: relative;
   box-shadow: 1px 1px 1px 1px rgba(1, 1, 1, 0.3);
   cursor: pointer;
   transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform 0.9s;
+}
+
+.card:active {
+  transform: scale(0.97);
+  transition: transform 0.3s;
 }
 
 .card-front,
@@ -48,4 +58,33 @@ body {
   position: absolute;
   border-radius: 5px;
   background-color: #ffffff;
+  backface-visibility: hidden;
+  box-shadow: 1px 1px 2px 2px #bbbbbb;
+}
+
+.card-front,
+.card.flip {
+  transform: rotatey(180deg);
+}
+
+.display-inf {
+  margin-bottom: 10px;
+  color: blue;
+  font-size: 1.2rem;
+}
+
+.button {
+  margin-left: 10px;
+  border: 1px solid #333333;
+  border-radius: 10px;
+  padding: 2px;
+  color: #009999;
+  background-color: #ffffff;
+  box-shadow: 1px 1px 2px 2px #ffffff;
+}
+
+.button:hover {
+  cursor: pointer;
+  background-color: #ffdddd;
+  box-shadow: 1px 1px 2px 2px #ffbbbb;
 }
