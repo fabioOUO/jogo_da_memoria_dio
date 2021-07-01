@@ -24,8 +24,6 @@ function flipCard(){
 function setPont(valor){
     document.getElementById("ponts").innerHTML = valor;
     ponts = valor;
-    console.log(valor);
-    console.log(ponts);
 
 }
 function setMovements(valor){
